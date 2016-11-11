@@ -1,0 +1,27 @@
+{
+  "name": "astra-money-survey",
+  "version": "0.1.0",
+  "description": "Live, Interactive Analysis of the Money Survey Results",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "2.4.1",
+    "express": "4.13.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilakos/astra-money-survey"
+  },
+  "keywords": [
+    "astra", 
+    "finance", 
+    "money", 
+    "survey"
+  ],
+  "license": "MIT"
+}
