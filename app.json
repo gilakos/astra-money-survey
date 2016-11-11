@@ -1,0 +1,8 @@
+{
+  "name": "Astra Money Survey",
+  "description": "Live, Interactive Analysis of the Money Survey Results",
+  "repository": "https://github.com/gilakos/astra-money-survey",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["astra", "finance", "money", "survey"],
+  "image": "heroku/nodejs"
+}
