@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link type="text/css" href="style.css"/>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="AgeAccountsJS.js"></script>
     <meta charset="UTF-8">
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -15,6 +18,19 @@
     <title>Google Analytics Data</title>
 </head>
 <body>
+<!--Your age vs number of checking accounts (scatter plot) - plot color: blue=knows score, red=doesn't-->
+<div id="AgeAccounts">
+    <form>
+        <label><input type="radio" name="mode" value="grouped"> Grouped</label>
+        <label><input type="radio" name="mode" value="stacked" checked> Stacked</label>
+    </form>
+</div>
+<!--How often you check your checking account (histogram): Age backets x-axis, daily/weekly,monthly stacked per age group by color-->
+<div id="CheckingFreqByAge"></div>
+<!---->
+<div id=""></div>
+<div id=""></div>
+
 
 </body>
 </html>
