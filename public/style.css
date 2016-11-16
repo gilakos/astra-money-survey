@@ -1,0 +1,20 @@
+#AgeAccounts{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: auto;
+    position: relative;
+    width: 960px;
+}
+#AgeAccounts.text{
+    font: 10px sans-serif;
+}
+#AgeAccounts .form {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#AgeAccounts.axis line{
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
