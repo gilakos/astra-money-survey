@@ -61,11 +61,15 @@ svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis);
 
-d3.selectAll("input").on("change", change);
+// d3.selectAll("input").on("change", change);
 
+// d3.select("#grouped").click(transitionGrouped());
+// d3.select("#stacked").click(transitionStacked());
 var timeout = setTimeout(function() {
     d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
 }, 2000);
+document.getElementById("grouped").addEventListener("click", transitionGrouped);
+document.getElementById("stacked").addEventListener("click", transitionStacked);
 
 function change() {
     clearTimeout(timeout);
@@ -117,3 +121,4 @@ function bumpLayer(n, o) {
     for (i = 0; i < 5; ++i) bump(a);
     return a.map(function(d, i) { return {x: i, y: Math.max(0, d)}; });
 }
+
