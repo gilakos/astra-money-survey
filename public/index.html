@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <script src="//d3js.org/d3.v3.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto">
     <!--<script src="AgeAccountsJS.js"></script>-->
     <meta charset="UTF-8">
     <script>
@@ -22,14 +24,17 @@
 <div id="AgeAccounts">
     <script src="AgeAccountsJS.js"></script>
     <form>
-        <label><input type="radio" id="grouped"  name="mode" value="grouped"> Grouped</label>
-        <label><input type="radio" id="stacked"  name="mode" value="stacked" checked> Stacked</label>
+        <label><input type="radio" id="grouped" onclick="transitionGrouped()"  name="mode" value="grouped"> Grouped</label>
+        <label><input type="radio" id="stacked" onclick="transitionStacked()" name="mode" value="stacked" checked> Stacked</label>
     </form>
 </div>
 <!--Your age vs number of checking accounts (scatter plot) - plot color: blue=knows score, red=doesn't-->
-<div id="NumAccounts"></div>
+<div id="NumAccounts">
+   <script src="NumAccounts.js"></script>    <!-- Must keep js file commented out until correct data is available   -->
+    <h1> Testing </h1>
+</div>
 <!---->
-<div id=""></div>
+<div id="placeholder1"><h1>This is a placeholder</h1></div>
 <div id=""></div>
 
 
