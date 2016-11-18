@@ -11,16 +11,18 @@
   },
   "dependencies": {
     "ejs": "2.4.1",
-    "express": "4.13.3"
+    "express": "4.13.3",
+    "jsonfile": "^2.4.0",
+    "typeform-node-api": "^1.0.3"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/gilakos/astra-money-survey"
   },
   "keywords": [
-    "astra", 
-    "finance", 
-    "money", 
+    "astra",
+    "finance",
+    "money",
     "survey"
   ],
   "license": "MIT"
