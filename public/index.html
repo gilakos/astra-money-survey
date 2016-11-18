@@ -18,16 +18,16 @@
     <title>Astra Money Survey Analysis</title>
 </head>
 <body>
-<!--Your age vs number of checking accounts (scatter plot) - plot color: blue=knows score, red=doesn't-->
+<!--How often you check your checking account (histogram): Age backets x-axis, daily/weekly,monthly stacked per age group by color-->
 <div id="AgeAccounts">
     <script src="AgeAccountsJS.js"></script>
     <form>
-        <label><input type="radio" onclick="transitionGrouped()" name="mode" value="grouped"> Grouped</label>
-        <label><input type="radio" onclick="transitionStacked()" name="mode" value="stacked" checked> Stacked</label>
+        <label><input type="radio" id="grouped"  name="mode" value="grouped"> Grouped</label>
+        <label><input type="radio" id="stacked"  name="mode" value="stacked" checked> Stacked</label>
     </form>
 </div>
-<!--How often you check your checking account (histogram): Age backets x-axis, daily/weekly,monthly stacked per age group by color-->
-<div id="CheckingFreqByAge"></div>
+<!--Your age vs number of checking accounts (scatter plot) - plot color: blue=knows score, red=doesn't-->
+<div id="NumAccounts"></div>
 <!---->
 <div id=""></div>
 <div id=""></div>
