@@ -1,11 +1,18 @@
+body{
+    font-family: 'Roboto', serif;
+}
 #AgeAccounts{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: auto;
     position: relative;
-    width: 960px;
+    width: 1050px;
+    display: block;
+
+
+
 }
 #AgeAccounts.text{
-    font: 10px sans-serif;
+    font-size: 8px;
+
 }
 #AgeAccounts .form {
     position: absolute;
@@ -17,4 +24,33 @@
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges;
+}
+
+
+#NumAccounts {
+    margin: auto;
+    position: relative;
+    width: 960px;
+    height: 200px;
+}
+
+#NumAccounts .axis path,
+#NumAccounts .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+#NumAccounts .dot {
+    stroke: #000;
+}
+
+
+
+
+
+#placeholder1{
+    width: 1000px;
+    height: 250px;
+    background-color: #2fba9b;
 }
