@@ -10,7 +10,7 @@ var n = 4, // number of layers
     yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
 
 var margin = {top: 40, right: 10, bottom: 20, left: 10},
-    width = 960 - margin.left - margin.right,
+    width = 1250 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
@@ -49,7 +49,8 @@ var rect = layer.selectAll("rect")
     .attr("x", function(d) { return x(d.x); })
     .attr("y", height)
     .attr("width", x.rangeBand())
-    .attr("height", 0);
+    .attr("height", 0)
+    .attr("color",  "#2fba9b");
 
 rect.transition()
     .delay(function(d, i) { return i * 10; })
