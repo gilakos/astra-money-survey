@@ -61,15 +61,17 @@ svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis);
 
-// d3.selectAll("input").on("change", change);
+d3.selectAll("input").on("change", change);
 
-// d3.select("#grouped").click(transitionGrouped());
-// d3.select("#stacked").click(transitionStacked());
+
 var timeout = setTimeout(function() {
     d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
 }, 2000);
-document.getElementById("grouped").addEventListener("click", transitionGrouped);
-document.getElementById("stacked").addEventListener("click", transitionStacked);
+
+// var a = d3.select("#grouped").on("click", transitionGrouped());
+// var b = d3.select("#stacked").on("click", transitionStacked());
+// var input = d3.selectAll("input");
+// console.log(input);
 
 function change() {
     clearTimeout(timeout);
