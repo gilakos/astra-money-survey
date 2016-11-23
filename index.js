@@ -1,16 +1,20 @@
 // Require dependent libraries
-var express = require('express');
-var http = require('http');
-var app = express();
-var server = http.createServer(app);
-var io = require('socket.io').listen(server);
-
 var Typeform = require('typeform-node-api');
 
+// Setup basic express server
+var express = require('express');
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 // Define the port
-app.set('port', (process.env.PORT || 5000));
+var port = process.env.PORT || 3000;
 
-// Define the public director
+// Send initial console message
+server.listen(port, function () {
+    console.log('Server listening at port %d', port);
+});
+
+// Define the public routing directory
 app.use(express.static(__dirname + '/public'));
 
 // views is directory for all template files
@@ -33,20 +37,21 @@ var typeform_api = new Typeform('3b6a02cd52c56c8a06df60d75979178c619d7f1e');
 // Define the current year for age calculation
 current_year = new Date().getFullYear();
 
+
 /*
 *****************
 For testing locally, set localtest to True
 When False, will skip the internal function
 *****************
 */
-var local_test = true;
+var local_test = false;
 
 // Testing Socket
-io.on('connection', function(socket){
-  console.log('socket connected');
-});
+//io.sockets.on('connection', function (socket) {
+//    console.log('socket connected');
+//});
 
-/*
+
 // Request the typeform results with form id
 typeform_api.getCompletedFormResponses('mKCmta', function (data) {
     // Drill to second level to the responses
@@ -85,4 +90,3 @@ typeform_api.getCompletedFormResponses('mKCmta', function (data) {
     }
 });
 
-*/
