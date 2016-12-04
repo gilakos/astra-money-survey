@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "ejs": "2.4.1",
-    "express": "4.13.3",
+    "express": "^4.10.2",
     "jsonfile": "^2.4.0",
     "socket.io": "^1.5.1",
+    "typeform": "^1.0.0",
     "typeform-node-api": "^1.0.3"
   },
   "repository": {
