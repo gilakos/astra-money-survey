@@ -24,16 +24,22 @@ var svg = d3.select("body").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("sampledata.tsv", function(error, data) {
+// d3.json("views/data.json", function(error, data) {
+var socket = io();
+    socket.on('graph_data_0', function(data, error) {
+    console.log('in numaccounts');
+    // console.log(data.data[1].gender);
+
     if (error) throw error;
 
-    data.forEach(function(d) {
-        d.sepalLength = +d.sepalLength;
-        d.sepalWidth = +d.sepalWidth;
+    data.data.forEach(function(d) {
+        d.age = +d.age;
+        gender = +d.gender;     //not sure why this one can't be d.gender, but it won't recognize later if it is
+        d.numaccts = +d.numaccts;
     });
 
-    x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
-    y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
+    x.domain(d3.extent(data.data, function(d) { return d.age; })).nice();
+    y.domain(d3.extent(data.data, function(d) { return d.numaccts; })).nice();
 
     svg.append("g")
         .attr("class", "x axis")
@@ -44,7 +50,7 @@ d3.tsv("sampledata.tsv", function(error, data) {
         .attr("x", width)
         .attr("y", -6)
         .style("text-anchor", "end")
-        .text("Sepal Width (cm)");
+        .text("Age");
 
     svg.append("g")
         .attr("class", "y axis")
@@ -55,16 +61,23 @@ d3.tsv("sampledata.tsv", function(error, data) {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Sepal Length (cm)")
+        .text("Num Accounts")
 
     svg.selectAll(".dot")
-        .data(data)
+        .data(data.data)
         .enter().append("circle")
         .attr("class", "dot")
         .attr("r", 3.5)
-        .attr("cx", function(d) { return x(d.sepalWidth); })
-        .attr("cy", function(d) { return y(d.sepalLength); })
-        .style("fill", function(d) { return color(d.species); });
+        .attr("cx", function(d) { return x(d.age); })
+        .attr("cy", function(d) { return y(d.numaccts); })
+        .style("fill", function(d){
+            if(d.gender == "Female") {  //if the gender var above is set as d.gender, this returns "NAN", not sure why
+                return "hotpink"; 
+            }
+            else 
+                return "blue";
+        })
+        // .style("fill", "blue")
 
     var legend = svg.selectAll(".legend")
         .data(color.domain())
@@ -84,5 +97,4 @@ d3.tsv("sampledata.tsv", function(error, data) {
         .attr("dy", ".35em")
         .style("text-anchor", "end")
         .text(function(d) { return d; });
-
 });

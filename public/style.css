@@ -4,20 +4,17 @@ body{
 #AgeAccounts{
     margin: auto;
     position: relative;
-    width: 1050px;
+    width: auto;
     display: block;
-
-
-
 }
 #AgeAccounts.text{
     font-size: 8px;
 
 }
 #AgeAccounts .form {
+    margin: auto;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    
 }
 
 #AgeAccounts.axis line{
@@ -30,8 +27,12 @@ body{
 #NumAccounts {
     margin: auto;
     position: relative;
-    width: 960px;
-    height: 200px;
+    width: auto;
+    height: auto;
+}
+h1 {
+    width: 400px;
+    left: 10px;
 }
 
 #NumAccounts .axis path,
