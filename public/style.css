@@ -4,20 +4,17 @@ body{
 #AgeAccounts{
     margin: auto;
     position: relative;
-    width: 1050px;
+    width: auto;
     display: block;
-
-
-
 }
 #AgeAccounts.text{
     font-size: 8px;
 
 }
 #AgeAccounts .form {
+    margin: auto;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    
 }
 
 #AgeAccounts.axis line{
@@ -30,8 +27,12 @@ body{
 #NumAccounts {
     margin: auto;
     position: relative;
-    width: 960px;
-    height: 200px;
+    width: auto;
+    height: auto;
+}
+h1 {
+    width: 400px;
+    left: 10px;
 }
 
 #NumAccounts .axis path,
@@ -46,7 +47,57 @@ body{
 }
 
 
+rect {
+  fill: transparent;
+  shape-rendering: crispEdges;
+}
 
+.axis path,
+.axis line {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.1);
+  shape-rendering: crispEdges;
+}
+
+.axisLine {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 2px;
+}
+
+.dot {
+  fill-opacity: .5;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
 
 
 #placeholder1{

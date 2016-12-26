@@ -1,7 +1,9 @@
 /**
  * Created by Ben on 11/14/2016.
  */
-
+// d3.json("data.json", function (data){
+    // console.log(data);
+    
 var n = 4, // number of layers
     m = 58, // number of samples per layer
     stack = d3.layout.stack(),
@@ -124,4 +126,5 @@ function bumpLayer(n, o) {
     for (i = 0; i < 5; ++i) bump(a);
     return a.map(function(d, i) { return {x: i, y: Math.max(0, d)}; });
 }
+// });
 

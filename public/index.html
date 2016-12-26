@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="//d3js.org/d3.v3.min.js"></script>
+     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
     <!--<script src="AgeAccountsJS.js"></script>-->
     <meta charset="UTF-8">
@@ -30,19 +31,19 @@
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 
 <body>
-    <script>
+  <!--   <script>   this is used inside numaccounts
         // Initialize a new instance of socket.io
         var socket = io();
 
         socket.on('graph_data_0', function(data) {
-            console.log('From SocketIO');
-            console.log(data);
+            // console.log('From SocketIO');
+            // console.log(data);
         });
 
-    </script>
+    </script> -->
 
-    <!--How often you check your checking account (histogram): Age backets x-axis, daily/weekly,monthly stacked per age group by color-->
-    <div id="AgeAccounts">
+    <!--How often you check your checking account (histogram): Age brackets x-axis, daily/weekly,monthly stacked per age group by color-->
+    <!-- <div id="AgeAccounts">
         <script src="AgeAccountsJS.js"></script>
         <form>
             <label>
@@ -50,7 +51,12 @@
             <label>
                 <input type="radio" id="stacked" onclick="transitionStacked()" name="mode" value="stacked" checked> Stacked</label>
         </form>
-    </div>
+        <br>
+    </div> -->
+    <div id="NumAccounts">
+    <h1>Age vs Number of Accounts</h1>
+        <script src="NumAccounts.js"></script>
+    <div>
 </body>
 
 </html>
