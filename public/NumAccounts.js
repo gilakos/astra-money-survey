@@ -23,7 +23,7 @@ var socket = io();
 
   var xMax = d3.max(data.data, function(d) { return d[xCat]; }) * 1.05,  //xCat is simply "age" in object, 1.05 may need to be removed
       xMin = d3.min(data.data, function(d) { return d[xCat]; }),
-      xMin = xMin > 0 ? 0 : xMin,
+      xMin = xMin > 0 ? 0 : xMin,                                     //checking for negative values
       yMax = d3.max(data.data, function(d) { return d[yCat]; }) * 1.05,
       yMin = d3.min(data.data, function(d) { return d[yCat]; }),
       yMin = yMin > 0 ? 0 : yMin;
