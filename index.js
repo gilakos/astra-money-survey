@@ -79,6 +79,7 @@ io.on('connection', function (socket) {
             dataPoint.age = current_year - parseInt(answer.number_26064010);
             dataPoint.numaccts = parseInt(answer.number_26116670);
             dataPoint.gender = answer.listimage_26064008_choice;
+            dataPoint.acctfreq = answer.list_26116922_choice;
             // Add this data point to the scatter data object
             scatterData.data.push(dataPoint);
         }

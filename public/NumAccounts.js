@@ -14,12 +14,14 @@ var xCat = "age",
     yCat = "numaccts";
 
 var socket = io();
-    socket.on('graph_data_0', function(data, error) {   //grabs live typeform data
+socket.on('graph_data_0', function(data, error) {   //grabs live typeform data
   data.data.forEach(function(d) {  //data.data is used everywhere because 'data' is the object name, with many children nodes, 
     d.age = +d.age;                    //one of which is (inconveniently) called 'data', which is the object we need to work with
     gender = +d.gender;     //not sure why this one can't be d.gender, but it won't recognize later if it is
     d.numaccts = +d.numaccts;
+    
   });
+  console.log(data);
 
   var xMax = d3.max(data.data, function(d) { return d[xCat]; }) * 1.05,  //xCat is simply "age" in object, 1.05 may need to be removed
       xMin = d3.min(data.data, function(d) { return d[xCat]; }),
@@ -57,14 +59,14 @@ var socket = io();
       .on("zoom", zoom);
 
   var svg = d3.select("#NumAccounts")  //adding the svg (d3) body to the NumAccounts id on index.html
-    .append("svg")                     //this allows the svg body to be dynamic when zooming, not creating a static svg body
+      .append("svg")                     //this allows the svg body to be dynamic when zooming, not creating a static svg body
       .attr("width", outerWidth)
       .attr("height", outerHeight)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")") 
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       .call(zoomBeh);
 
-  svg.call(tip); 
+  svg.call(tip);
 
   svg.append("rect")
       .attr("width", width)
@@ -74,7 +76,7 @@ var socket = io();
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
-    .append("text")
+      .append("text")
       .classed("label", true)
       .attr("x", width)
       .attr("y", margin.bottom - 10)
@@ -84,7 +86,7 @@ var socket = io();
   svg.append("g")
       .classed("y axis", true)
       .call(yAxis)
-    .append("text")
+      .append("text")
       .classed("label", true)
       .attr("transform", "rotate(-90)")
       .attr("y", -margin.left)
@@ -114,23 +116,23 @@ var socket = io();
 
   objects.selectAll(".dot")
       .data(data.data)
-    .enter().append("circle")
+      .enter().append("circle")
       .classed("dot", true)
       .attr("r", 6)
       .attr("transform", transform)
       .style("fill", function(d){       //setting the color for man vs woman
-            if(d.gender == "Female") {  //if the gender var above is set as d.gender, this returns "NAN", not sure why
-                return "hotpink"; 
+        if(d.gender == "Female") {  //if the gender var above is set as d.gender, this returns "NAN", not sure why
+          return "hotpink";
         }
-        else 
-            return "blue";
-    })
+        else
+          return "blue";
+      })
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
   var legend = svg.selectAll(".legend")   //for a key on the right end, may not be necessary for us.
       .data(color.domain())
-    .enter().append("g")
+      .enter().append("g")
       .classed("legend", true)
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
@@ -160,7 +162,7 @@ var socket = io();
     objects.selectAll(".dot").transition().duration(1000).attr("transform", transform);
   }
 
-  function zoom() {  
+  function zoom() {
     svg.select(".x.axis").call(xAxis);
     svg.select(".y.axis").call(yAxis);
 

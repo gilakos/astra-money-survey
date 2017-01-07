@@ -38,12 +38,11 @@ h1 {
 #NumAccounts .axis path,
 #NumAccounts .axis line {
     fill: none;
-    stroke: #000;
     shape-rendering: crispEdges;
 }
 
 #NumAccounts .dot {
-    stroke: #000;
+
 }
 
 
