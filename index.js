@@ -80,6 +80,7 @@ io.on('connection', function (socket) {
             dataPoint.numaccts = parseInt(answer.number_26116670);
             dataPoint.gender = answer.listimage_26064008_choice;
             dataPoint.acctfreq = answer.list_26116922_choice;
+            dataPoint.appsUsed = answer.textfield_26320940;
             // Add this data point to the scatter data object
             scatterData.data.push(dataPoint);
         }

@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="//d3js.org/d3.v3.min.js"></script>
      <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
     <!--<script src="AgeAccountsJS.js"></script>-->
     <meta charset="UTF-8">
@@ -45,20 +46,31 @@
 
 
     <!--How often you check your checking account (histogram): Age brackets x-axis, daily/weekly,monthly stacked per age group by color-->
-    <div id="AgeAccounts">
-        <script src="AgeAccountsJS.js"></script>
-        <form>
-            <label>
-                <input type="radio" id="grouped" onclick="transitionGrouped()" name="mode" value="grouped"> Grouped</label>
-            <label>
-                <input type="radio" id="stacked" onclick="transitionStacked()" name="mode" value="stacked" checked> Stacked</label>
-        </form>
-        <br>
-    </div>
+    <!--<div id="AgeAccounts">-->
+        <!--<script src="AgeAccountsJS.js"></script>-->
+        <!--<form>-->
+            <!--<label>-->
+                <!--<input type="radio" id="grouped" onclick="transitionGrouped()" name="mode" value="grouped"> Grouped</label>-->
+            <!--<label>-->
+                <!--<input type="radio" id="stacked" onclick="transitionStacked()" name="mode" value="stacked" checked> Stacked</label>-->
+        <!--</form>-->
+        <!--<br>-->
+    <!--</div>-->
+
   <div id="NumAccounts">
       <h1>Age vs Number of Accounts</h1>
       <script src="NumAccounts.js"></script>
   </div>
+
+
+    <div id="wordCount">
+    <h1>How often does each word appear?</h1>
+    <script src="counter.js">/**
+     * Created by Ben on 2/10/2017.
+     */
+
+    </script>
+    </div>
 
 </body>
 

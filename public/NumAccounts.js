@@ -21,7 +21,7 @@ socket.on('graph_data_0', function(data, error) {   //grabs live typeform data
     d.numaccts = +d.numaccts;
     
   });
-  console.log(data);
+  // console.log(data);
 
   var xMax = d3.max(data.data, function(d) { return d[xCat]; }) * 1.05,  //xCat is simply "age" in object, 1.05 may need to be removed
       xMin = d3.min(data.data, function(d) { return d[xCat]; }),
