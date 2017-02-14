@@ -80,33 +80,38 @@ function wordCloud(selector) {
 
 //http://bl.ocks.org/jwhitfieldseed/9697914
 var words = [];
-var count = 0;
-
-// var word = "Bank of America, Merrill Lynch and AmEx apps";
-// word += " testing";
-// words.push(word);
-// console.log(words);
+var temp = [];
 var socket2 = io();
-var temp = "";
-
+var word = "";
+var badWords = ["NA", "N/A", "no", "nope", "na", "n/a", "and", "or", "app", "apps", "a", "ie", "none", "don't",
+                "dont", "&", "my", "for", "each", "my"];
+for(var i = 0; i<badWords.length; i++){
+    badWords[i] = badWords[i].toUpperCase();
+}
+console.log(badWords);
 
 socket2.on('graph_data_0', function (data, error) {   //grabs live typeform data
     data.data.forEach(function (d) {  //data.data is used everywhere because 'data' is the object name, with many children nodes,
-        if (typeof d.appsUsed != 'undefined') {
-            // temp += (d.appsUsed.split(/[ ,.]+/));
-            temp += "" + d.appsUsed + " ";
-            // words.push(String(d.appsUsed.split(/[ ,]+/)));
+        if (typeof d.appsUsed != 'undefined' && badWords.indexOf(d.appsUsed.toUpperCase()) < 0) { //dont want words in the badWords array
+            temp = d.appsUsed.split(/[ ,.]+/);
+            for(var i = 0; i < temp.length; i++){
+                if(badWords.indexOf(temp[i].toUpperCase()) < 0)
+                words.push(temp[i]);
+            }
+        // .split(/[ ,]+/)
         }
     });
+    console.log(words);
+    // for(var i = 0; i < words.length; i++){
+    //     word += words[i];
+    // }
+    // words.remo
 
-
-words = temp.split(/[ ,.]+/);
-console.log(words[0]);
 //Prepare one of the sample sentences by removing punctuation,
 // creating an array of words and computing a random size attribute.
     function getWords(i) {
         return words[i]
-            .replace(/[!\.,:;\?]/g, '')
+            .replace(/[!\.,:;()\?]/g, '')
             .split(' ')
             .map(function (d) {
                 return {text: d, size: 10 + Math.random() * 60};
@@ -129,5 +134,5 @@ console.log(words[0]);
 
 //Start cycling through the demo data
     showNewWords(myWordCloud);
-});
 
+});

@@ -58,9 +58,11 @@ var local_test = false;
 
 //On socket connection, pull from typeform
 io.on('connection', function (socket) {
+    console.log("connection");
 
     // Request the typeform results with form id
     typeform_api.getCompletedFormResponses('mKCmta', function (data) {
+        console.log("typeform");
         // Drill to second level to the responses
         var responses = data.responses;
         // Create the initial obj format for scatter plot (graph 0)
